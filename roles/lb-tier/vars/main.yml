@@ -1,0 +1,5 @@
+---
+# vars file for lb-tier
+payload: haproxy
+GUID: 0cd2
+app_port: 8080
