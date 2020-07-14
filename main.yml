@@ -9,6 +9,7 @@
 - name: Install 3tier-app(lb-tier)
   hosts: frontends
   gather_facts: false
+  become: true
 
   roles:
     - lb-tier
