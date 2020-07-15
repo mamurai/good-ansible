@@ -1,0 +1,23 @@
+---
+# tasks file for win_ad_create
+
+- name: Create AD Group
+  win_group:
+    name: '{{ item.name }}'
+    description: '{{ item.desc }}'
+    state: present
+  with_items: '{{ group_info }}'
+
+- name: Create AD User and  Group
+  win_domain_user:
+    name: '{{ item.name }}'
+    firstname: '{{ item.first_name }}'
+    surname: '{{ item.last_name }}'
+    password: '{{ item.password }}'
+    email: '{{ item.email }}'
+    groups:
+      - '{{ item.group_name }}'
+    state: present
+  with_items: '{{ user_info }}'
+
+

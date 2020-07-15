@@ -1,0 +1,12 @@
+# vars file for win_ad_install
+ad_domain_name: ad1.3917.example.opentlc.com
+ad_safe_mode_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+ad_admin_user: "admin@{{ ad_domain_name }}"
+ad_admin_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+
+# vars file for win_service_config
+package_name: openssh
+parameters: /SSHServerFeature
+service_name: SSHD
+local_port: 22
+protocol_name: tcp

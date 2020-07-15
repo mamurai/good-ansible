@@ -1,0 +1,29 @@
+---
+# tasks file for win_ad_install
+
+- name: install AD-Domain-Services
+  win_feature:
+    name: AD-Domain-Services
+    include_management_tools: yes
+    include_sub_feature: yes
+    state: present
+  register: result
+
+- name: Create new domain in a new forest on the target host
+  win_domain:
+    dns_domain_name: "{{ ad_domain_name }}"
+    safe_mode_password: "{{ ad_safe_mode_password }}"
+  register: result
+
+- name: Reboot if installing Web-Server feature requires it
+  win_reboot:
+    msg: "Server config in progress; rebooting..."
+  when: result.reboot_required
+
+- name: print out available domain list 
+  win_shell: nltest /dclist:"{{ ad_domain_name }}"
+  register: result
+
+- name: show previous shell stdout
+  debug:
+    msg: "{{ result }}" 

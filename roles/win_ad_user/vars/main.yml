@@ -1,0 +1,42 @@
+# vars file for win_ad_user
+ad_domain_name: ad1.3917.example.opentlc.com
+ad_safe_mode_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+ad_admin_user: "admin@{{ ad_domain_name }}"
+ad_admin_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+
+
+group_info:
+  - name: dev
+    desc: Developroup
+  - name: qa
+    desc: QA
+
+user_info:
+  - name: james
+    first_name: James 
+    last_name: Jockey
+    password: redhat@123
+    email: james@"{{ ad_domain_name }}"
+    group_name: dev
+    group_scope: domainlocal
+  - name: bill
+    first_name: Bill
+    last_name: Gates
+    password: redhat@123
+    email: bill@"{{ ad_domain_name }}"
+    group_name: dev
+    group_scope: domainlocal
+  - name: mickey
+    first_name: Mickey
+    last_name: Mouse
+    password: redhat@123
+    email: mickey@"{{ ad_domain_name }}"
+    group_name: qa
+    group_scope: domainlocal
+  - name: donald
+    first_name: Donald
+    last_name: Duck
+    password: redhat@123
+    email: donald@"{{ ad_domain_name }}"
+    group_name: qa
+    group_scope: domainlocal
