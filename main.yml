@@ -6,6 +6,9 @@
   roles:
    - configration
 
+- name: Import In-memory inventory play
+  import_playbook: in-memory-inventory.yml
+
 - name: Install 3tier-app(lb-tier)
   hosts: frontends
   gather_facts: false
